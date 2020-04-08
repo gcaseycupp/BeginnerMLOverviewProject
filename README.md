@@ -9,7 +9,7 @@ Week 1:
 	* https://docs.google.com/presentation/d/1xSr7N_z9UhkPiJLzgjgQaMN0SPAtV1FoTV12odXGwSw/edit#slide=id.p
 
 * Week 1 Workflow available here : 
-	* Azure : Free 8 hour - https://studio.azureml.net/#
+	* ML Studio:Azure : Free 8 hour - https://studio.azureml.net/# -> 'Sign Up Here'
 	* https://docs.google.com/spreadsheets/d/1_tJdLdoLXodsZAD0TkMqDmRZGXgiW0heVE_rXy2jjMI/edit?usp=sharing
 
 
