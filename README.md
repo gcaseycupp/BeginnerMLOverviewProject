@@ -13,6 +13,7 @@ Week 1:
 
 Week 2:
 * Data ETL via google sheets.
+
 * Python via Jupyter Notebook 
 ** You can use Python Install via Anaconda, instructions to be added
 ** or
