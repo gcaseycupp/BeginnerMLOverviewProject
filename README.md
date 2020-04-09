@@ -2,6 +2,10 @@
 # BeginnerMLOverviewProject
 
 Week 1: 
+
+* Chat doc...
+* https://docs.google.com/document/d/1hjQ1tlDt7TxA7RxHLEHCtakRnxLqG1KXusRWrZ7vkio/edit
+
 * Meeting via Join.me - 4/8/2020 6pm
 	* https://join.me/778-463-217
 
