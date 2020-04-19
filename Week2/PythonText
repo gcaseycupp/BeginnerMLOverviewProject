@@ -1,0 +1,123 @@
+print('Hello World')
+
+#For Python
+
+
+
+**This is a markdown cell, not a code cell**
+
+---
+
+
+<br>
+Almost all Jupyter type notebooks allow for both inline.<br>
+If you make a change in an upper cell. The lower cells will not be aware of those changes, unless you re-run the upper cells.<br>
+
+Python does not use semicolons for statement delimiters<br>
+Python uses spaces instead of curly braces for block scoping<br><br>
+Python is a core language but is very reliant on third party libraries for ML.<br>
+Most commonly used 3rd Party libraries are:<br>
+* Numpy - Arrays (can be multidimensional) 
+* Pandas - DataFrame 2d data table object 
+* os - OS
+* matplotlib - Plotting
+* seaport - Plotting
+* scikit-learn - Machine Learning
+
+for speed, you can import specific classes of large libraries. 
+You will see us do that with scikit-learn<br><br>
+*One confusing thing for me about Jupyter Cells* <br>
+'Enter' creates a new line. <br>
+'Shift'-'Enter' moves out of the line and runs it. <br>
+The opposite of spreadsheets
+
+import pandas as pd                 # pandas is a dataframe library
+import matplotlib.pyplot as plt      # matplotlib.pyplot plots data
+import os
+
+%matplotlib inline
+
+import os
+for dirname, _, filenames in os.walk('/content'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+#LOAD OUR DATE 
+#read in CSV File 
+import pandas as pd
+filename = "/content/ML2TestFinalData4-18-2020.csv"
+df = pd.read_csv(filename)
+df.head()
+
+#REVIEW OUR DATA
+df.shape
+
+df.isnull().any()
+
+#for Jared :) This is before we do any machine learning, so it may very well be that a column doesn't look important but is, in conjunction with another column
+df.corr()
+
+import seaborn as sn
+corrMatrix = df.corr()
+sn.heatmap(corrMatrix, annot=True)
+plt.show()
+
+#CREATE TEXT & TRAIN DATASETS
+#from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
+feature_col_names = ['LIVEAREA','FINBSMNT','CONDITION_ADJ','NOCARS','BASEMENT','NUMBDRM','NUMBATHS'  ]
+predicted_class_names = ['NETPRICE']
+
+X = df[feature_col_names].values     # predictor feature columns (8 X m)
+y = df[predicted_class_names].values # predicted class (1=true, 0=false) column (1 X m)
+split_test_size = 0.30 # test_size = 0.3 is 30%, 42 is the answer to everything
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=split_test_size, random_state=42) 
+                           
+
+#How did our split go?
+print("{0:0.2f}% in training set".format((len(X_train)/len(df.index)) * 100))
+print("{0:0.2f}% in test set".format((len(X_test)/len(df.index)) * 100))
+
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+#SETUP AND RUN OUR LINEAR REGRESSION MODEL/ALGORITHM (FIT is another word for 'create model' )
+lr_modelLR = LinearRegression()     
+lr_modelLR.fit(X_train, y_train.ravel()) 
+
+#SCORE OUR NEW MODEL/ALGORITHM BASED ON TRAINING DATA - LINEAR REGRESSION
+lr_predict_trainLR = lr_modelLR.predict(X_train)
+
+rmse = mean_squared_error(y_train, lr_predict_trainLR)
+r2 = r2_score(y_train, lr_predict_trainLR)
+
+
+# training metrics
+print('Slope:' ,lr_modelLR.coef_)
+print('Intercept:', lr_modelLR.intercept_)
+
+print('Root mean squared error: ', rmse)
+print('R2 score: ', r2)
+
+#SETUP AND RUN OUR MODEL/ALGORITHM ON TEST DATA
+from sklearn.ensemble import RandomForestRegressor
+rf_modelRFTest = RandomForestRegressor(n_estimators = 100, random_state = 42)    # Instantiate model with 100 decision trees
+rf_modelRFTest.fit(X_test, y_test.ravel()) 
+
+#SCORE OUR NEW MODEL/ALGORITHM BASED ON TEST DATA
+rf_predict_trainRFTest = rf_modelRFTest.predict(X_test)
+
+rmseTest = mean_squared_error(y_test, rf_predict_trainRFTest)
+r2Test = r2_score(y_test, rf_predict_trainRFTest)
+
+print('Root mean squared error: ', rmseTest)
+print('R2 score: ',r2Test)
+
+Pretty good. <br>
+How could we improve this R2?
+
+
+
+
+
