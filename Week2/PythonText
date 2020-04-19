@@ -37,6 +37,13 @@ import os
 
 %matplotlib inline
 
+# For Kaggle : Data doesn't isn't available for code immediately despite being visibe in interface. Sometimes hours
+# For CoLab : Depending on how saving, data often goes away at the end and you must re-add.
+# If using local Python : this problem goes away.
+import os
+for dirname, _, filenames in os.walk('/content'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
 import os
 for dirname, _, filenames in os.walk('/content'):
     for filename in filenames:
