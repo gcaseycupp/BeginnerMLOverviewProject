@@ -23,4 +23,4 @@ Week 2:
 * Python via Jupyter Notebook 
 	* You can use Python Install via Anaconda, instructions to be added
 	* or
-	* You can use googlecolab  -Kaggle Kernels - no install required. Requires free Account-. I will demo with this.
+	* You can use googlecolab  ~~Kaggle Kernels  no install required. Requires free Account~~ Kaggle is slow to upload data. I will demo with google colab.
