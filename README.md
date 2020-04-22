@@ -16,7 +16,7 @@ Week 1:
 
 Week 2:
 * Meeting via Join.me - 4/8/2020 7pm
-** https://join.me/333-879-322
+ 	* https://join.me/333-879-322
 
 * Data ETL via google sheets.
     * http://data.opencolorado.org/dataset/city-and-county-of-denver-real-property-sales-book-2013/resource/2e1e28ba-cb31-4959-bc41-e16e573e8015?inner_span=True
