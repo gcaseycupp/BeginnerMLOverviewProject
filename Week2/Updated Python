@@ -1,0 +1,12 @@
+# fit a model
+from sklearn import datasets, linear_model 
+lm = linear_model.LinearRegression()
+model = lm.fit(X_train, y_train)
+predictions = lm.predict(X_test)
+
+
+## The line / model
+from matplotlib import pyplot as plt
+plt.scatter(y_test, predictions)
+plt.xlabel('actual')
+plt.ylabel('Predictions')
